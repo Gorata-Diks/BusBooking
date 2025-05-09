@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Login Section -->
+  <div id="loginSection" class="login-container">
+    <h2>Admin Login</h2>
+    <input type="password" id="adminPassword" placeholder="Enter Password" />
+    <button onclick="login()">Login</button>
+    <div id="loginError" class="error-message"></div>
+    <div id="message" class="feedback-message"></div>
+
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="adminDashboard" style="display: none;">
+    <div class="container">
+      <h1>Admin Dashboard</h1>
+
+      <!-- Feedback Message -->
+      <div id="feedbackMessage" class="feedback-message"></div>
+
+      <div class="section">
+        <h2>Manage Buses</h2>
+        <button id="addBusBtn">Add New Bus</button>
+        <div id="busList"></div>
+      </div>
+
+      <div class="section">
+        <h2>Manage Tickets</h2>
+        <div id="ticketList"></div>
+        <button id="refreshTicketsBtn">Refresh Tickets</button>
+      </div>
+
+      <div class="section">
+        <h2>Revenue</h2>
+        <p>Total Revenue: <span id="totalRevenue">0</span></p>
+      </div>
+    </div>
+
+    <!-- Modal for Adding Bus -->
+    <div id="addBusModal" class="modal">
+      <div class="modal-content">
+        <h3>Add New Bus</h3>
+        <form id="addBusForm">
+          <input type="text" id="company" placeholder="Company" required>
+          <input type="text" id="plate" placeholder="Plate" required>
+          <input type="text" id="from_location" placeholder="From" required>
+          <input type="text" id="to_location" placeholder="To" required>
+          <input type="text" id="departure" placeholder="Departure Time" required>
+          <input type="text" id="arrival" placeholder="Arrival Time" required>
+          <input type="number" id="seats" placeholder="Seats" required>
+          <input type="number" id="price" placeholder="Price" required>
+          <input type="text" id="image" placeholder="Image URL" required>
+          <button type="submit">Add Bus</button>
+          <button type="button" id="closeModalBtn">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

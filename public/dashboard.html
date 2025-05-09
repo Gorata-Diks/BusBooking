@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bus Dashboard</title>
+  <link rel="stylesheet" href="dash.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>MyBus</h2>
+      <nav>
+        <ul>
+            <li class="tab active" data-tab="home-tab">Home</li>
+            <li class="tab" data-tab="tickets-tab">My Tickets</li>
+            <li class="tab" data-tab="profile-tab">My Profile</li>
+            <li class="tab" data-tab="settings-tab">Settings</li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="main-content">
+      
+      <section class="tab-content" id="home-tab">
+        <header>
+          <h1>Find Your Bus</h1>
+          <div class="search-filters">
+            <input type="text" id="from-input" placeholder="From" />
+            <input type="text" id="to-input" placeholder="To" />
+         
+           
+            <button id="search-btn">Search</button>
+          </div>
+        </header>
+        <section class="bus-listings" id="bus-listings"></section>
+      </section>
+     
+      <section class="tab-content hidden" id="tickets-tab">
+
+  <h1>Your Tickets</h1>
+  <div class="ticket-container" id="ticket-container">
+    <!-- Tickets will be injected here dynamically -->
+  </div>
+  <p id="no-tickets-msg" class="hidden">You have no tickets yet.</p>
+</section>
+
+  <section class="tab-content hidden" id="profile-tab">
+  <h1>Your Profile</h1>
+  <form id="profile-form" class="profile-form">
+    <label>
+      Full Name
+      <input type="text" id="profile-name" placeholder="John Doe" />
+    </label>
+    <label>
+      Email
+      <input type="email" id="profile-email" placeholder="john@example.com" />
+    </label>
+    <label>
+      Phone
+      <input type="tel" id="profile-phone" placeholder="123-456-7890" />
+    </label>
+    <button type="submit">Save Changes</button>
+  </form>
+  <p id="profile-success" class="hidden">✅ Profile updated successfully!</p>
+</section>
+
+
+<section class="tab-content hidden" id="settings-tab">
+    <h1>Settings</h1>
+    <form id="settings-form" class="settings-form">
+      <label>
+        Notifications
+        <select id="notification-setting">
+          <option value="enabled">Enabled</option>
+          <option value="disabled">Disabled</option>
+        </select>
+      </label>
+      <label>
+        Theme
+        <select id="theme-setting">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+      <button type="submit">Save Settings</button>
+    </form>
+    <p id="settings-success" class="hidden">✅ Settings saved!</p>
+  </section>
+  
+    </main>
+  </div>
+  <div id="seat-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal">&times;</span>
+      
+      <div id="seat-step">
+        <h2>Select a Seat</h2>
+        <div id="seat-grid"></div>
+        <button id="confirm-seat">Confirm Seat</button>
+      </div>
+  
+      <div id="payment-step" class="hidden">
+        <h2>Payment</h2>
+        <div class="payment-methods">
+          <label><input type="radio" name="card" value="Visa" checked> Visa</label>
+          <label><input type="radio" name="card" value="MasterCard"> MasterCard</label>
+        </div>
+        <input type="text" id="card-number" placeholder="Card Number">
+        <input type="text" id="cvv" placeholder="CVV">
+        <button id="pay-btn">Pay</button>
+      </div>
+  
+      <div id="booking-progress" class="hidden">
+        <div class="spinner"></div>
+        <p>Processing your booking...</p>
+    </div>
+    
+    <div id="booking-confirmation" class="hidden">
+      <h2>🎉 Booking Confirmed!</h2>
+      <p>Thank you for choosing MyBus.</p>
+    </div>
+    
+    </div>
+  </div>
+  
+  <script src="dash.js"></script>
+</body>
+</html>

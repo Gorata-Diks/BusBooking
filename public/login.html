@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Ticketing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <h2 id="form-title">Login</h2>
+      <form id="auth-form">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+         <button type="submit" onclick="todash()">Login</button>
+      </form>
+      <div id="message" class="feedback-message"></div>
+      <p id="toggle-link">Don't have an account? <a href="#" onclick="toggleForm()">Register</a></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

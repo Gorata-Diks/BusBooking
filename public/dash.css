@@ -1,0 +1,409 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+
+   overflow: hidden;
+  }
+  
+  .dashboard {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 220px;
+    background-color: #183B4E;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+  }
+  .sidebar h2 {
+    margin-bottom: 30px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    padding: 12px 0;
+    cursor: pointer;
+  }
+  
+  .sidebar li.active,
+  .sidebar li:hover {
+    background-color: #145;
+    padding-left: 10px;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  header {
+    margin-bottom: 20px;
+  }
+  .search-filters{
+    display: flex;
+    gap: 10px;
+  }
+  .search-filters input,
+  .search-filters select {
+    padding: 8px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+   
+  }
+  #to-input,#from-input{
+    width: 180px;
+  }
+  #search-btn{
+    width: 100px;
+    height: 34px;
+    margin-top: 10px;
+  }
+  .bus-listings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 10px;
+    height: 560px;
+    overflow-y: scroll;
+   background-color: rgb(243, 226, 226);
+   margin-top: -20px;
+   padding-bottom: 10%;
+  }
+  
+  /* Each card takes up approx. 48% to allow 2 per row */
+  .bus-card {
+    flex: 0 1 48%;
+    box-sizing: border-box;
+    height: 280px; /* or auto if you prefer flexible height */
+  }
+  
+  
+  .bus-card.dark {
+    background-color: #1e1e2f;
+    color: #f1f1f1;
+    border-radius: 12px;
+    padding: 20px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  
+  .bus-card.dark h3 {
+    margin: 10px 0;
+  }
+  
+  .bus-card.dark .bus-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 15px;
+  }
+  
+  .tag {
+    background-color: #262638;
+    border: 1px solid #007bff;
+    color: #00aaff;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+  }
+  
+  .info p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+  }
+  
+  .book-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .book-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .modal.hidden {
+    display: none;
+  }
+  .modal-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    width: 480px;
+    max-height: 70vh; /* NEW: limit modal height */
+    overflow-y: auto; /* NEW: scroll inside modal if content overflows */
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  #seat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+    margin: 20px 0;
+  }
+  .seat {
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  }
+  .seat.selected {
+    background: #4CAF50;
+    color: white;
+  }
+  .seat.booked {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  .payment-methods {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+  }
+  input[type="text"] {
+    width: 90%;
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #999;
+  }
+  button {
+    padding: 10px 15px;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #0b7dda;
+  }
+  .loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #2196F3;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 20px auto;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+
+  /* Basic styles */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  margin: 0;
+  height: 100vh;
+}
+
+.dashboard {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  background-color: #222;
+  color: white;
+  width: 250px;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+nav ul li.active {
+  background-color: #444;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+.ticket-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.ticket-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  padding: 1rem;
+  transition: 0.3s ease;
+}
+
+.ticket-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.ticket-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.ticket-info {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 0.75rem;
+  color: white;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.confirmed { background: #28a745; }
+.expired   { background: #dc3545; }
+.free      { background: #007bff; }
+
+.ticket-card button {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+}
+
+#no-tickets-msg {
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+  color: gray;
+}
+.profile-form, .settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  padding: 1rem 0;
+}
+
+.profile-form input,
+.settings-form select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.profile-form button,
+.settings-form button {
+  padding: 0.6rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#profile-success,
+#settings-success {
+  margin-top: 1rem;
+  color: green;
+  font-weight: bold;
+}
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db; /* blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.hidden {
+  display: none;
+}
