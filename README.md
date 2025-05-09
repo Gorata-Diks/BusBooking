@@ -95,7 +95,6 @@ BusBooking/
 ## 🤝 Contributors
 
 * Gorata-Diks
-* MrKatlo
 * R AND I Group Members
 
 ---
@@ -108,5 +107,5 @@ This project is for educational purposes. Licensing to be added.
 
 ---
 
-Let me know if you'd like me to include screenshots, feature descriptions, or deployment instructions (e.g., for Heroku or Vercel).
+
 ```
